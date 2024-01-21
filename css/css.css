@@ -1,0 +1,177 @@
+html
+{
+    font-size: 62,5%; /** AJUSTADOR DE REM **/
+    box-sizing: border-box;   
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body
+{
+    
+    background: rgb(211,211,211);
+    background: linear-gradient(0deg, rgba(211,211,211,1) 17%, rgba(255,255,255,1) 53%, rgba(245,245,245,1) 70%, rgba(234,234,234,1) 100%); 
+    background-image: url(/img/Picture3.jpg);
+
+    zoom: 90%
+}
+a
+{ 
+    color: black;
+    text-decoration: none; 
+    transition: 0.4s;     
+}
+a:hover
+{
+    color: #4e4e4e;
+}
+
+
+.box
+{
+    padding: 3rem;
+    margin: 6rem;
+    border: 0.1rem solid #000;
+    background-image: url(/img/84574897-viejo-fondo-de-papel-periódico-grunge-con-espacio-para-texto-fondo-vintage.jpg);
+}
+
+.globales
+{
+    text-align: center;
+    margin: auto;
+    font-size: 40px;
+    letter-spacing: 5px;
+}
+h2
+{
+    text-align: center;
+}
+.texto
+{
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: default;
+}
+.textoBajo
+{
+    text-align: justify;
+    margin-left: 5.5rem;
+    margin-right: 5.5rem;
+}
+
+#shadowBox
+{
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.52); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.52);
+}
+  
+  .rainbow {
+    text-align: center;
+ 
+    animation: colorRotate 6s linear 0s infinite;
+  }
+  
+  @keyframes colorRotate {
+    from {
+      color: #6666ff;
+    }
+    10% {
+      color: #0099ff;
+    }
+    50% {
+      color: #00ff00;
+    }
+    75% {
+      color: #fa208d;
+    }
+    100% {
+      color: #6666ff;
+    }
+  } 
+
+.fuente
+{
+    font-family: 'Questrial', sans-serif;
+}
+.fuentePixel
+{
+    font-family: 'Pixelify Sans', sans-serif;
+}
+.fuentePrimer
+{
+    font-family: 'UnifrakturMaguntia', cursive;
+}
+
+#nav
+{
+    color: rgb(36, 36, 36);
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+
+}
+.nav:hover,
+.nav--activo
+{
+    color: #F98125
+}
+.undertale:hover
+{
+    color: rgb(73, 3, 119);
+    cursor: default;
+}
+
+.deadcells:hover
+{
+    color: rgb(136, 10, 10);
+    cursor: default;
+}
+.terraria:hover
+{
+    color: rgb(6, 165, 6);
+    cursor: default;
+}
+
+.blasphemous:hover
+{
+    color: #8b4712;
+    cursor: default;
+}
+.lineas
+{
+    border: 1px solid;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+.img
+{
+    cursor: pointer;
+    width: 30rem;
+    display: block;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.52); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.52);
+
+    border-radius: 0.2rem;
+    transition: 0.4s; 
+
+  
+}
+
+.img:hover
+{
+    transform: scale(1.1);
+}
+
+.grid
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax( 10rem, auto);
+    grid-gap: 2.5rem;   
+}
