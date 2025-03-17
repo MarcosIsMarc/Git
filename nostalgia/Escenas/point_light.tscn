@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://w7gp50o7myrg"]
+
+[ext_resource type="Texture2D" uid="uid://dpf2431h0ptvw" path="res://TileMap/2d_lights_and_shadows_neutral_point_light.jpg" id="1_m34mt"]
+
+[node name="PointLight2D" type="PointLight2D"]
+position = Vector2(282, 120)
+scale = Vector2(-0.75, 0.742188)
+color = Color(0.780898, 0.00139656, 0.902564, 1)
+texture = ExtResource("1_m34mt")

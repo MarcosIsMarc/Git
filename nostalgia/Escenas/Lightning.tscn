@@ -1,0 +1,157 @@
+[gd_scene load_steps=23 format=3 uid="uid://dyu08rcradswn"]
+
+[ext_resource type="Script" path="res://Scripts/lightning.gd" id="1_cloxl"]
+[ext_resource type="Texture2D" uid="uid://20bpcns8pmsb" path="res://TileMap/Large Lightning (64x48).png" id="1_jj3ow"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nv2h"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl5ka"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ums42"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 96, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niy8v"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 144, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rc7r"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 192, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd1a0"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 240, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crdns"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 288, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1ifa"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 336, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_empql"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 384, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbu0a"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 432, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tma7d"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 480, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07mg7"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 528, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il3xm"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 576, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovphw"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 624, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhxem"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 672, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7kaf"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 720, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2lqu"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 768, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ea4l"]
+atlas = ExtResource("1_jj3ow")
+region = Rect2(0, 816, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlxw6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nv2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl5ka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ums42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niy8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rc7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd1a0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crdns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1ifa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_empql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbu0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tma7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07mg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il3xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovphw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhxem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7kaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2lqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ea4l")
+}],
+"loop": true,
+"name": &"lightning",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_miigk"]
+radius = 18.0
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_cloxl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rlxw6")
+animation = &"lightning"
+frame_progress = 0.817253
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 16
+visibility_layer = 16
+position = Vector2(7, -10)
+shape = SubResource("CircleShape2D_miigk")
+debug_color = Color(0.77018, 0.156271, 1, 0.42)

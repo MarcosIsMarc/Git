@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://r4s1y8xegq2b"]
+
+[ext_resource type="Texture2D" uid="uid://u52h3bbr76hd" path="res://TileMap/1- Background - Sky (1).png" id="1_3ju13"]
+[ext_resource type="Texture2D" uid="uid://fjky5hr0lgwf" path="res://TileMap/2 -Background - Mountains (2).png" id="1_40kec"]
+[ext_resource type="Texture2D" uid="uid://s1evhqyyv0j7" path="res://TileMap/3 -Foreground - Mountains (3).png" id="2_v0awb"]
+[ext_resource type="Texture2D" uid="uid://c6cnuni3i3xhq" path="res://TileMap/4- Ground (4).png" id="3_gioh5"]
+[ext_resource type="Texture2D" uid="uid://bm4j55q4tf0dp" path="res://TileMap/5- Fog (5).png" id="5_0qhi0"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(557, 429)
+scale = Vector2(1.6, 1.2)
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(93.6364, -84.0909)
+scale = Vector2(1.81818, 4.56676)
+texture = ExtResource("1_3ju13")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_40kec")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("2_v0awb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer"]
+visible = false
+texture = ExtResource("3_gioh5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxLayer"]
+visible = false
+texture = ExtResource("5_0qhi0")

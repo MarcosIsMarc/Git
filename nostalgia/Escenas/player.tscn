@@ -1,7 +1,8 @@
-[gd_scene load_steps=53 format=3 uid="uid://cokly4avvuwxv"]
+[gd_scene load_steps=54 format=3 uid="uid://cokly4avvuwxv"]
 
 [ext_resource type="Script" path="res://Escenas/player.gd" id="1_pvl2l"]
 [ext_resource type="Texture2D" uid="uid://c2hieffycm3ug" path="res://Characters/Sci-fi Samurai with Sword 124x49.png" id="1_pyeja"]
+[ext_resource type="PackedScene" uid="uid://w7gp50o7myrg" path="res://Escenas/point_light.tscn" id="3_fnkk1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmy01"]
 atlas = ExtResource("1_pyeja")
@@ -378,11 +379,19 @@ size = Vector2(13, 25.1)
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_pvl2l")
 
+[node name="PointLight2D" parent="." instance=ExtResource("3_fnkk1")]
+position = Vector2(1, 18)
+rotation = -3.14159
+scale = Vector2(0.75, -0.742188)
+color = Color(1, 1, 1, 0.0745098)
+range_z_max = 1025
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i8drl")
 animation = &"idle"
 frame_progress = 0.231547
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, 12)
 shape = SubResource("RectangleShape2D_pwcwb")
