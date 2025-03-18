@@ -237,7 +237,7 @@ offset_left = -22.0
 offset_top = 35.0
 offset_right = 1129.0
 offset_bottom = 683.0
-color = Color(0.0588235, 0.0588235, 0.0588235, 0.470588)
+color = Color(0.0588235, 0.0588235, 0.0588235, 0.356863)
 
 [node name="PointLight2D" parent="." instance=ExtResource("5_8r1xs")]
 position = Vector2(342, 460)
