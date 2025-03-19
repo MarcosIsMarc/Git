@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://24brra20mr43"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_nrwfl"]
+[ext_resource type="AudioStream" uid="uid://c17f2q8bv0u1a" path="res://music/Menu_sound.mp3" id="2_kk3gi"]
+[ext_resource type="Texture2D" uid="uid://dfaavp2vtqsiw" path="res://background/pantallaxBW.png" id="2_ow5sk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6knp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xd62"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oimg3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nrwfl")
+
+[node name="ScreenFade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 647.0
+texture = ExtResource("2_ow5sk")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00319553, 0.00912031, 0.0155874, 0.596078)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kk3gi")
+volume_db = -11.075
+pitch_scale = 0.96
+autoplay = true
+max_distance = 2001.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 268.0
+offset_right = 321.0
+offset_bottom = 437.0
+scale = Vector2(1.2, 1.2)
+theme_override_constants/separation = 31
+alignment = 1
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.230315, 0.230315, 0.230315, 1)
+theme_override_colors/font_color = Color(0.489622, 0.489622, 0.489622, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_r6knp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2xd62")
+text = "Start"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.20871, 0.20871, 0.20871, 1)
+theme_override_colors/font_color = Color(0.490196, 0.490196, 0.490196, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_oimg3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2xd62")
+text = "Exit
+"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

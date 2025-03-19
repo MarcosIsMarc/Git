@@ -1,8 +1,10 @@
-[gd_scene load_steps=62 format=3 uid="uid://cokly4avvuwxv"]
+[gd_scene load_steps=64 format=3 uid="uid://cokly4avvuwxv"]
 
-[ext_resource type="Script" path="res://Escenas/player.gd" id="1_pvl2l"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_pvl2l"]
 [ext_resource type="Texture2D" uid="uid://c2hieffycm3ug" path="res://Characters/Sci-fi Samurai with Sword 124x49.png" id="1_pyeja"]
 [ext_resource type="PackedScene" uid="uid://w7gp50o7myrg" path="res://Escenas/point_light.tscn" id="3_fnkk1"]
+[ext_resource type="AudioStream" uid="uid://bsrov2nsn28t3" path="res://sound effects/sword.mp3" id="4_e4sk6"]
+[ext_resource type="AudioStream" uid="uid://3c5v2ahupqoe" path="res://sound effects/steps.mp3" id="5_lo436"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmy01"]
 atlas = ExtResource("1_pyeja")
@@ -457,3 +459,12 @@ frame_progress = 1.0
 visible = false
 position = Vector2(-0.5, 12)
 shape = SubResource("RectangleShape2D_pwcwb")
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_e4sk6")
+volume_db = -8.915
+
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lo436")
+volume_db = -13.866
+pitch_scale = 0.88
