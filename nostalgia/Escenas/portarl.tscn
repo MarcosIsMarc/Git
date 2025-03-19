@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcvjoh2au7g3m"]
+[gd_scene load_steps=16 format=3 uid="uid://bcvjoh2au7g3m"]
 
 [ext_resource type="Texture2D" uid="uid://7a5cwfchy3de" path="res://TileMap/idle 28x41.png" id="1_1dk66"]
-[ext_resource type="Script" path="res://Scripts/portarl.gd" id="1_8prvd"]
+[ext_resource type="Script" uid="uid://cc0rjrlmshwn3" path="res://Scripts/portarl.gd" id="1_8prvd"]
 [ext_resource type="Texture2D" uid="uid://dpf2431h0ptvw" path="res://TileMap/2d_lights_and_shadows_neutral_point_light.jpg" id="3_7sn1a"]
+[ext_resource type="AudioStream" uid="uid://b5lnik0m6jv7v" path="res://sound effects/teleport.mp3" id="4_wqdpv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwg5l"]
 atlas = ExtResource("1_1dk66")
@@ -78,7 +79,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1uk1d"]
 size = Vector2(28, 3)
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=["player"]]
 script = ExtResource("1_8prvd")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -96,3 +97,11 @@ light_mask = 4
 position = Vector2(0, 18.99)
 shape = SubResource("RectangleShape2D_1uk1d")
 debug_color = Color(0.873233, 0.860168, 0.958505, 0.42)
+
+[node name="PortalSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wqdpv")
+volume_db = -8.304
+pitch_scale = 0.97
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

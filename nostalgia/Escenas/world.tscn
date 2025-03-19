@@ -233,13 +233,6 @@ zoom = Vector2(1.3, 1.3)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_ud5mq")]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -22.0
-offset_top = 35.0
-offset_right = 1129.0
-offset_bottom = 683.0
-color = Color(0.0588235, 0.0588235, 0.0588235, 0.564706)
-
 [node name="PointLight2D" parent="." instance=ExtResource("5_8r1xs")]
 position = Vector2(342, 460)
 scale = Vector2(-0.333315, 0.292177)
@@ -300,3 +293,10 @@ parameters/looping = true
 
 [node name="Area2D2" parent="." instance=ExtResource("8_pmq6t")]
 position = Vector2(712, 443.5)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -22.0
+offset_top = 35.0
+offset_right = 1129.0
+offset_bottom = 683.0
+color = Color(0.0588235, 0.0588235, 0.0588235, 0.564706)

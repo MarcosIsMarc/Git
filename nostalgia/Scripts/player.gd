@@ -13,6 +13,7 @@ var can_jump: bool = true
 @onready var anim = $AnimatedSprite2D
 @onready var walk_sound = $WalkSound
 @onready var attack_sound = $AttackSound
+@onready var jump_sound = $JumpSound
 @onready var camera = get_node("/root/TileMapLayer/Camera2D") if has_node("/root/TileMapLayer/Camera2D") else null
 
 func _physics_process(delta):
@@ -49,6 +50,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("move_jump") and is_on_floor() and can_jump:
 		velocity.y = current_jump_force
 		anim.play("jump")
+		jump_sound.play()
 
 	if velocity.y > 0 and not is_on_floor():
 		anim.play("fall")

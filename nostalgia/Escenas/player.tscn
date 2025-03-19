@@ -1,10 +1,11 @@
-[gd_scene load_steps=64 format=3 uid="uid://cokly4avvuwxv"]
+[gd_scene load_steps=69 format=3 uid="uid://cokly4avvuwxv"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_pvl2l"]
+[ext_resource type="Script" uid="uid://xev4hbm7sgd8" path="res://Scripts/player.gd" id="1_pvl2l"]
 [ext_resource type="Texture2D" uid="uid://c2hieffycm3ug" path="res://Characters/Sci-fi Samurai with Sword 124x49.png" id="1_pyeja"]
 [ext_resource type="PackedScene" uid="uid://w7gp50o7myrg" path="res://Escenas/point_light.tscn" id="3_fnkk1"]
 [ext_resource type="AudioStream" uid="uid://bsrov2nsn28t3" path="res://sound effects/sword.mp3" id="4_e4sk6"]
 [ext_resource type="AudioStream" uid="uid://3c5v2ahupqoe" path="res://sound effects/steps.mp3" id="5_lo436"]
+[ext_resource type="AudioStream" uid="uid://5w324bixbn5r" path="res://sound effects/jump.mp3" id="6_xlwfv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmy01"]
 atlas = ExtResource("1_pyeja")
@@ -133,6 +134,22 @@ region = Rect2(248, 196, 124, 49)
 [sub_resource type="AtlasTexture" id="AtlasTexture_me1r0"]
 atlas = ExtResource("1_pyeja")
 region = Rect2(372, 196, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlwfv"]
+atlas = ExtResource("1_pyeja")
+region = Rect2(0, 392, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v5l4"]
+atlas = ExtResource("1_pyeja")
+region = Rect2(372, 245, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b21vg"]
+atlas = ExtResource("1_pyeja")
+region = Rect2(496, 245, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohiiw"]
+atlas = ExtResource("1_pyeja")
+region = Rect2(620, 245, 124, 49)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h2pdr"]
 atlas = ExtResource("1_pyeja")
@@ -306,7 +323,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"block",
-"speed": 30.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -347,6 +364,23 @@ animations = [{
 "loop": true,
 "name": &"fall",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlwfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v5l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b21vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohiiw")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -439,7 +473,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwcwb"]
 size = Vector2(13, 25.1)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_pvl2l")
 
 [node name="PointLight2D" parent="." instance=ExtResource("3_fnkk1")]
@@ -451,9 +485,8 @@ range_z_max = 1025
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i8drl")
-animation = &"block"
-frame = 10
-frame_progress = 1.0
+animation = &"hit"
+frame_progress = 0.457447
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -466,5 +499,10 @@ volume_db = -8.915
 
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_lo436")
-volume_db = -13.866
+volume_db = -5.942
 pitch_scale = 0.88
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_xlwfv")
+volume_db = -9.583
+pitch_scale = 0.7
