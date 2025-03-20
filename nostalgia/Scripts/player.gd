@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var max_health: int = 100
+var current_health: int
+
 @export var speed: float = 100.0
 @export var jump_force: float = -250.0
 @export var gravity: float = 900.0
@@ -9,16 +12,29 @@ extends CharacterBody2D
 var facing_direction: int = 1
 var attacking: bool = false
 var can_jump: bool = true
+var is_hurt: bool = false
+var is_dead: bool = false
 
 @onready var anim = $AnimatedSprite2D
 @onready var walk_sound = $WalkSound
 @onready var attack_sound = $AttackSound
 @onready var jump_sound = $JumpSound
+@onready var hit_sound = $HitSound
+@onready var death_sound = $DeathSound
 @onready var camera = get_node("/root/TileMapLayer/Camera2D") if has_node("/root/TileMapLayer/Camera2D") else null
 
+func _ready():
+	current_health = max_health  # Inicializa la vida al máximo
+
 func _physics_process(delta):
+	if is_dead:
+		return  # No puede hacer nada si está muerto
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
+	if is_hurt:
+		return  # No puede moverse si está en la animación de "hit"
 
 	var current_speed = speed
 	var current_jump_force = jump_force
@@ -66,6 +82,35 @@ func _physics_process(delta):
 		can_jump = true
 
 	move_and_slide()
+
+# 🔥 Función para recibir daño
+func take_damage(amount: int):
+	if is_hurt or attacking or is_dead:
+		return  # No recibe daño si ya está en animación de golpe, atacando o muerto
+
+	current_health -= amount
+	if current_health <= 0:
+		die()
+		return
+
+	is_hurt = true
+	anim.play("hit")
+	hit_sound.play()
+
+	await anim.animation_finished
+	is_hurt = false
+
+# ☠️ Función para morir con animación
+func die():
+	if is_dead:
+		return  # No ejecuta la muerte dos veces
+
+	is_dead = true
+	anim.play("dead")
+	death_sound.play()
+
+	await anim.animation_finished  # Espera a que termine la animación
+	queue_free()  # Elimina al personaje (puedes cambiar esto para reiniciar la escena)
 
 # 🔥 Función para hacer el temblor de pantalla
 func start_screen_shake(duration: float, intensity: float):
